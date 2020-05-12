@@ -47,7 +47,6 @@ def makelist(rootdir='.', suffix=''):
 #---------------------------------------------
 # Part 1: Clear working directories
 #---------------------------------------------
-
 #user prompt y/n
 print(" ="*18+"Please Read Carefully"+" ="*18)
 print(" This script will overwrite files in the working directory. (clip_pix, clip_scene, report, PCA) Please backup before proceeding")
@@ -63,7 +62,6 @@ print(' ...Part 1 completed')
 #------------------------------------------
 # Part2: Clip Imagery with SHP file 
 #------------------------------------------
-
 print("... Part 2: Clipping Scene")
 #make a list for shp file of clipping area                                        
 input_shp  = (makelist(rootdir =working_dir, suffix = '.shp'))
@@ -118,18 +116,15 @@ print("... Part 2: Clipping Scene Completed")
 #-----------------------------------------------
 # Part 3 : Add Raster Channels and Perform PCA
 #-----------------------------------------------
-
 print(" ...Part 3 : Adding Raster Channels and Performing PCA")
-
-#find clipped scene and place in a list
+# find clipped scene and place in a list
 input_pix = (makelist(rootdir = clip_scene, suffix = '.pix'))
-
-#add raster channels to clipped scene
+# add raster channels to clipped scene
 for image in input_pix:
     try:     
         file = image
         pciop = "ADD"
-        pcival = [6]                         # add 6 8-bit channels -->must match raw imagery 
+        pcival = [6]          # add 6 8-bit channels -->must match raw imagery 
         pcimod(file, pciop, pcival)
         
     except PCIException as e:
@@ -139,9 +134,8 @@ for image in input_pix:
 print(" ...raster channels added ")
 
 
-
 # report_dir has already been defined at the start
-#rep_file = report_dir + "/" + "report.txt"
+# rep_file = report_dir + "/" + "report.txt"
 try:
     Report.clear()
     enableDefaultReport(rep_file)
@@ -158,15 +152,11 @@ except Exception as e:
 finally:
     enableDefaultReport('Term')
 
-#export only the channels you want to have a smaller pix file
-#place the out file in folder PCA
-
 
 #set location of infile and outfile for fexport
-#******************************IMPORTANT : dbic [9,6,10] was chosen randomly. Choose appropriate channels for your work
 pix_12band = clip_scene + "/" + "scene_clipped.pix"
 pix_3band = final_dir + "/" + "halifax_pca.pix" 
-channel2export = [7,8,9,10,11,12]              #choose channel here
+channel2export = [7,8,9,10,11,12]                    #choose channels here
 try:
     fexport(fili = pix_12band, filo =pix_3band, dbic = channel2export)  
 except PCIException as e:
@@ -186,4 +176,4 @@ except Exception as e:
 #open the directory to view final image    
 os.startfile(final_dir)
 
-print("... THE END...Scripped has Sucessfully RAN ") 
+print("... script is sucessfully ran...")
