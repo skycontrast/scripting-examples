@@ -37,6 +37,7 @@ PA_Value = 2.5  # or stop iteration if this PA value is reached
 
 # Reprojection Error
 
+RE_Iterations = 1   # max iterations
 RE_ThreshIter = 10  # percentage of clouds removal per iteration
 RE_Value = 0.3  # reprojection error value
 
