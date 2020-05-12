@@ -1,5 +1,5 @@
 
-# Intro to gdal raster mipulation and processing
+# Intro/Cheat Sheet to GDAL raster manipulation and processing
 # R Del Bello
 # 05-2020
 
@@ -47,8 +47,7 @@ def getRasterBand(fn, band=1, access=0)
     band = ds.GetRasterBand(1).ReasAsArray()
     return band
 
-
- # filename for new raster, ds to copy from, data to write, driver (tiff-jpeg-etc)
+# Filename for new raster, ds to copy from, data to write, driver (tiff-jpeg-etc)
 def createRasterFromCopy(fn, ds, data, driverFmt="Gtiff"):    
     driver = gdal.GetDriverByName(driverFmt)                 #
     outds = driver.CreateCopy(fn, ds, strict=0)              # create outpiut dataset - new file name, ds to copy, strict  
@@ -74,7 +73,7 @@ rasterout = ""
 result =  gdal.Warp(rasout, rasin, cutlineDSName=shpin, cropToCutline=True)
 iface.addRasterLayer(rasout)   #add to qgis
 
-# Reprojection
+# Raster Reprojection
 import gdal
 fn =
 fout =
