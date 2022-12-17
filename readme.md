@@ -1,12 +1,22 @@
-## 2019-2020 Remote Sensing Scripting - sample work
+2019-2020 Remote Sensing
 
-## Goals:pre/post processing automation,  raster manipulation and file handling for raster analysis and representation.
+Compilation of basic scrips authored during my Advanced Diplome in Remote Sensing at the Centre of Geographic Sciences 
 
-_examples: atmospheric corrections, cloud/water/haze masking, raster shape clipping, enhancements, layer stacking, band arimethic and spectral indices, scene mosaic, segmentation for supervised classifications_
+Topics:
 
+image pre-processing  and post-processing automation,  raster manipulation and file handling for raster analysis and representation
 
- ### Python 2.7 - 3.x 
- ### Python Libraries: GDAL/OGR, Numpy, Rasterio, Shapely
- ### Software: QGIS,  PCI Geomatica, SNAP Erdas Imagine 
+Example:
+
+- atmospheric corrections
+- cloud/water/haze masking
+- raster shape clipping
+- enhancements 
+- layer stacking 
+- band arimethic
+- spectral indices
+- scene mosaicing 
+- image segmentation
+- supervised and unsupervised  classifications
 
 
